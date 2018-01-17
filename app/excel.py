@@ -1,28 +1,44 @@
 import xlrd
 import os.path 
-import numpy as np
 
 class ExcelReader(object):
+    """this class just simply Load Excel file and put that data to instance variable.
+     intended to be a baseclass for analyzing specific excel data  
+    __init__:
+    load():
+    read():
+    """
     def __init__(self):
+        """ initialize instance variables"""
         self.filepath = None
         self.data = []
         self.xls = None
 
     def load(self,filepath):
-        if isinstance(filepath,str) != True:
+        """ load excel file """ 
+        self.filepath=filepath
+        if isinstance(self.filepath,str) != True:
             return False
-        elif os.path.isfile(filepath) != True:
+        elif os.path.isfile(self.filepath) != True:
             return False
-        elif filepath.endswith('xlsx') != True :
+        elif self.filepath.endswith('xlsx') != True :
             return False
         
-        self.xls = xlrd.open_workbook(filepath)
+        self.xls = xlrd.open_workbook(self.filepath)
         return True
 
 
-    def read(self, sheet_index=0):
-        
-        st = self.xls.sheet_by_index(sheet_index)
+    def read(self, sheet_index=0,sheet_name=None):
+        """read specified sheet to self.data as a 2D array"""
+        try:
+            if sheet_name :
+                st = self.xls.sheet_by_name(sheet_name)
+            else:            
+                st = self.xls.sheet_by_index(sheet_index)
+        except:
+            pass
+            # [TODO] implement error handling 
+
         nrows = st.nrows
         ncols = st.ncols 
 
@@ -33,4 +49,4 @@ class ExcelReader(object):
                 self.data[r][c] = st.cell(r,c).value
         return True
 
-          
+
