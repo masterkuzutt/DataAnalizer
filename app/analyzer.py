@@ -1,6 +1,8 @@
-from app.excel import ExcelReader
 import pandas as pd 
 import numpy as np 
+
+from . import excel
+ExcelReader = excel.ExcelReader
 
 
 class ResourceReader(ExcelReader):
@@ -9,13 +11,13 @@ class ResourceReader(ExcelReader):
         super().__init__(*args)
         self.df = None
 
-        
     def read(self,**kwarg):
         super().read(**kwarg)
         self.data = np.array(self.data)
         return True
 
     def convert_to_df(self,start=None,end=None):
+        
         self.df = pd.DataFrame(
             data=self.data[1:-1,start:end],
             columns=self.data[0:1,start:end][0],
