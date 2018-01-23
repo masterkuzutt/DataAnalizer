@@ -8,7 +8,7 @@ ExcelReader = excel.ExcelReader
 class ResourceReader(ExcelReader):
     
     def __init__(self, *args):
-        super().__init__(*args)
+        super().__init__()
         self.df = None
 
     def read(self,**kwarg):

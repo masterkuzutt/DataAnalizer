@@ -1,17 +1,39 @@
 import xlrd
 import os.path 
 
-class ExcelReader(object):
+class DataReader(object):
+    """
+    this class is base class for data reader class.
+     intended to be a baseclass for analyzing array data  
+    __init__:
+    load():
+    read():
+    fill_empyt()
+    """   
+    def __init__(self, *args):
+        super().__init__(*args)
+        self.data = []
+    
+    def fill_empty(self, start_col, end_col):
+        if self.data :
+            for i,line in enumerate(self.data):
+                for j  in range(start_col,end_col + 1):
+                    if line[j] == '':
+                        self.data[i][j] = self.data[i - 1][j] 
+
+
+
+class ExcelReader(DataReader):
     """this class just simply Load Excel file and put that data to instance variable.
      intended to be a baseclass for analyzing specific excel data  
     __init__:
     load():
     read():
     """
-    def __init__(self):
+    def __init__(self,*args):
         """ initialize instance variables"""
+        super().__init__(*args)
         self.filepath = None
-        self.data = []
         self.xls = None
 
     def load(self,filepath):
@@ -50,3 +72,5 @@ class ExcelReader(object):
         return True
 
 
+
+    
