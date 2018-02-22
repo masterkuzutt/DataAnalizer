@@ -16,3 +16,6 @@ def map_index_to_value (index,levels,labels):
         label_list.append(data)
 
     return label_list
+
+def join_df(df1, df2):
+    pass
