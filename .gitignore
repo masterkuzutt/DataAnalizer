@@ -5,3 +5,4 @@ test_app.py
 note.txt
 *tmp.csv
 *.png
+*.egg-info*

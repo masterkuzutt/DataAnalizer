@@ -16,9 +16,10 @@ setup(
     version='0.0.1',  # Required
     description='A sample Python project that mainly manage data from excel',  # Required
     # long_description=long_description,  # Optional
-    url='https://github.com/masterkuzutt/DataAnalizer',  # Optional
+    url='https://github.com/masterkuzutt/data-analyzer',  # Optional
     author='Takahiro Sakai',  # Optional
     author_email='masterkuzutt+github@gmail.com',  # Optional
+    test_suite="tests",
     # classifiers=[  # Optional
     #     'Development Status :: 3 - Alpha',
     #     'Intended Audience :: Developers',
