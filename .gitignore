@@ -6,3 +6,5 @@ note.txt
 *tmp.csv
 *.png
 *.egg-info*
+build
+dist
