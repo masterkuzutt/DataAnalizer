@@ -3,4 +3,5 @@ __pycache__/
 app.py
 test_app.py
 note.txt
-tmp.csv
+*tmp.csv
+*.png
