@@ -12,11 +12,11 @@ here = path.abspath(path.dirname(__file__))
 
 setup(
 
-    name='data-analyzer', # Required 
+    name='danalyzer', # Required 
     version='0.0.1',  # Required
     description='A sample Python project that mainly manage data from excel',  # Required
     # long_description=long_description,  # Optional
-    url='https://github.com/masterkuzutt/data-analyzer',  # Optional
+    url='https://github.com/masterkuzutt/danalyzer',  # Optional
     author='Takahiro Sakai',  # Optional
     author_email='masterkuzutt+github@gmail.com',  # Optional
     test_suite="tests",
